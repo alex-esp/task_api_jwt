@@ -1,9 +1,3 @@
-# pip install Flask
-# pip install Flask-SQLAlchemy
-# pip install pyJWT
-# =====================================
-
-
 from datetime import datetime, timedelta
 from flask import Flask, request, jsonify, make_response
 from flask_sqlalchemy import SQLAlchemy
@@ -15,7 +9,6 @@ from functools import wraps
 import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '321MySimpleSecret123'
@@ -35,8 +28,6 @@ class User(db.Model):
     updated_at = db.Column(db.DateTime, onupdate=datetime.utcnow)
     expired_at = db.Column(db.DateTime)
     admin = db.Column(db.Boolean, default=False)
-
-
 
 
 def complete_data(in_data, parameters):
